@@ -1,1 +1,7 @@
-<p> Hello CD </p>
+<div ng-controller="CDCtrl">
+<img src="http://www.geonames.org/flags/x/{{ country.countryCode | lowercase }}.gif" />
+<p> Country Name: {{ country.countryName }}</p>
+<p>Capital Name: {{ capital.name }}</p>
+<p ng-repeat="neighbour in neighbours"><a href="#/countries/{{ neighbour.countryCode }}/capital">{{ neighbour.name }}</a></p>
+<img id='myImage' src="http://www.geonames.org/img/country/250/{{ country.countryCode | uppercase }}.png" />
+</div>

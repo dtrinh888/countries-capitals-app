@@ -9,12 +9,12 @@
 	</tr>
 	<tr ng-repeat="country in countries | orderBy:'countryName'">
 		
-		<td><a href="#/countries/:country/capital">{{ country.countryName }}</a></td>
-		<td><a href="#/countries/:country/capital">{{ country.countryCode }}</a></td>
-		<td><a href="#/countries/:country/capital">{{ country.capital }}</a></td>
-		<td><a href="#/countries/:country/capital">{{ country.areaInSqKm | number }}</a></td>
-		<td><a href="#/countries/:country/capital">{{ country.population | number }}</a></td>
-		<td><a href="#/countries/:country/capital">{{ country.continent }}</a></td>
+		<td><a href="#/countries/{{country.countryCode}}/capital">{{ country.countryName }}</a></td>
+		<td><a href="#/countries/{{country.countryCode}}/capital">{{ country.countryCode }}</a></td>
+		<td><a href="#/countries/{{country.countryCode}}/capital">{{ country.capital }}</a></td>
+		<td><a href="#/countries/{{country.countryCode}}/capital">{{ country.areaInSqKm | number }}</a></td>
+		<td><a href="#/countries/{{country.countryCode}}/capital">{{ country.population | number }}</a></td>
+		<td><a href="#/countries/{{country.countryCode}}/capital">{{ country.continent }}</a></td>
 
 	</tr>
 </table>
