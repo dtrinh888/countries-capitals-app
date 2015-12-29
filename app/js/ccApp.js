@@ -2,7 +2,6 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 	.config(['$routeProvider', function($routeProvider){
 		$routeProvider.when('/', {
 			templateUrl: 'home.html',
-			controller: 'HomeCtrl'
 		})
 		.when('/countries/', {
 			templateUrl: 'countries.html',
@@ -11,7 +10,11 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 		.when('/countries/:country/capital', {
 			templateUrl: 'country-detail.html',
 			controller: 'CDCtrl'
-		});
+		})
+		.when('/404', {
+			template: '<p>Error - Page Not Found</p>'
+		})
+		.otherwise('/404');
 	}])
 	.factory('countries', ['$http', function($http){
 		return function(){
@@ -60,9 +63,6 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 			});
 		};
 	}])
-	.controller('HomeCtrl', ['$scope', function($scope){
-
-	}])
 	.controller('CountriesCtrl', ['$scope', 'countries', function($scope, countries){
 		countries().then(function(data){
 			console.log(data.data);
@@ -70,28 +70,21 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 		});
 	}])
 	.controller('CDCtrl', ['$scope', '$route', 'capital', 'neighbours', 'countries', 'countryDetail', function($scope, $route, capital, neighbours, countries, countryDetail ) {
+
 		countryDetail($route.current.params.country).then(function(data){
-			console.log(data);
+			console.log('countrydetail', data);
 			$scope.country = data.data.geonames[0];
 			capital($scope.country.capital, $scope.country.countryCode).then(function(capitalData){
-				console.log(capitalData);
+				console.log('capital',capitalData);
 				$scope.capital = capitalData.data.geonames[0];
 			});
 			neighbours($scope.country.geonameId).then(function(neighbourData){
-				console.log(neighbourData);
+				console.log('neighbours',neighbourData);
 				$scope.neighbours = neighbourData.data.geonames;
 			});
+			countryDetail($scope.country.countryCode).then(function(countryDetailData){
+				console.log('cd',countryDetailData);
+				$scope.countryDetail = countryDetailData.data.geonames[0];
+			});
 		});
-		/*countries().then(function(data){
-			console.log(data);
-			$scope.countries = data.data.geonames.countryName;
-			console.log($scope.countries);
-		});
-		countryDetail().then(function(data){
-			countries(data);
-			console.log(data);
-		});
-		neighbours().then(function(data){
-			console.log(data);
-		});*/
 	}]);
