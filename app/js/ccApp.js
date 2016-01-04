@@ -95,11 +95,13 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 	}])
 	/* countries controller to control the data from the countries API */
 	.controller('CountriesCtrl', ['$scope', 'countries', function($scope, countries){
+		$scope.loading = true;
 		/* .then() method is used to supply callbacks to be executed when AJAX requests completes 
 		 * data parameter passes in the data from the countries API */
 		countries().then(function(data){
 			/* console logged data.data to view the data object in countries API to find data needed */
 			console.log(data.data);
+			$scope.loading = false;
 			/* scope variable created to grab all data from countries API data.geonames
 			 * all info needed for countries list is in geonames */
 			$scope.countries = data.data.geonames;	
@@ -108,10 +110,12 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 	/* injecting $route provider into controller to access the route parameters
 	 * since one of our routes has a parameter in the url ":country" we need to inject $route*/
 	.controller('CDCtrl', ['$scope', '$route', 'capital', 'neighbours', 'countries', 'countryDetail', function($scope, $route, capital, neighbours, countries, countryDetail){ 
+		$scope.loading = true;
 		/* to access route parameter ":country", we have to use $route provider in controller
 		 * and then get params for current route with $route.current.params
 		 * once parameters get passed in .then retrieve country API in data parameter*/
 		countryDetail($route.current.params.country).then(function(data){
+			$scope.loading = false;
 			console.log('countrydetail', data);
 			/* once we retrieve country API details stick it in the scope 
 			 * taking the first object in the array per assignment */
