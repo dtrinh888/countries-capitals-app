@@ -94,8 +94,9 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 		};
 	}])
 	/* countries controller to control the data from the countries API */
-	.controller('CountriesCtrl', ['$scope', 'countries', function($scope, countries){
+	.controller('CountriesCtrl', ['$scope', '$location', 'countries', function($scope, $location, countries){
 		$scope.loading = true;
+		$scope.countries = countries;
 		/* .then() method is used to supply callbacks to be executed when AJAX requests completes 
 		 * data parameter passes in the data from the countries API */
 		countries().then(function(data){
@@ -106,6 +107,11 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 			 * all info needed for countries list is in geonames */
 			$scope.countries = data.data.geonames;	
 		});
+		$scope.goToCountry = function(countries) {
+			if (countries.countryCode) {
+				$location.path('/countries/'+countries.countryCode+'/capital');
+			}
+		};
 	}])
 	/* injecting $route provider into controller to access the route parameters
 	 * since one of our routes has a parameter in the url ":country" we need to inject $route*/

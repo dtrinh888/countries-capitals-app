@@ -1,5 +1,5 @@
 <div class="container">
-	<div ng-show="loading">
+	<div ng-show="loading" class="text-center">
 		<p>Loading....</p>
 	</div>
 	<div ng-show="!loading"></div>	
@@ -12,9 +12,9 @@
 			<td>Population</td>
 			<td>Continent</td>
 		</tr>
-		<tr ng-repeat="country in countries | orderBy:'countryName'">
+		<tr ng-repeat="country in countries | orderBy:'countryName'" ng-click = "goToCountry(country)">
 			
-			<td><a href="#/countries/{{country.countryCode}}/capital">{{ country.countryName }}</a></td>
+			<td><!-- <a href="#/countries/{{country.countryCode}}/capital"> -->{{ country.countryName }}<!-- </a> --></td>
 			<td><a href="#/countries/{{country.countryCode}}/capital">{{ country.countryCode }}</a></td>
 			<td><a href="#/countries/{{country.countryCode}}/capital">{{ country.capital }}</a></td>
 			<td><a href="#/countries/{{country.countryCode}}/capital">{{ country.areaInSqKm | number }}</a></td>
