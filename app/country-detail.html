@@ -1,20 +1,22 @@
-<div ng-show="loading">
-	Loading...
-</div>
-<div ng-show="!loading">
-	<h1>{{ country.countryName }}</h1>
-	<p>Population of Country: {{ country.population | number }}</p>
-	<p>Area: {{ country.areaInSqKm | number }} square km</p>
-	<p>Capital: {{ capital.name }}</p>
-	<p>Population of Capital: {{ capital.population | number }}</p>
-	<label>{{ neighbours.length || 0 }} Neighbors<span ng-show="neighbours.length !== 1"></span>: </label>
-	<span ng-repeat="neighbour in neighbours"><a href="#/countries/{{ neighbour.countryCode }}/capital">{{ neighbour.name }}</a>{{ $last ? '' : ', ' }}</span>
-	<div>
-		<span><img id='myImage' src="http://www.geonames.org/img/country/250/{{ country.countryCode | uppercase }}.png" /></span>
-		<span><img src="http://www.geonames.org/flags/x/{{ country.countryCode | lowercase }}.gif" /></span>
+<div class="container country">
+	<div ng-show="loading">
+		Loading...
 	</div>
-	<div>
-		<span><a href="#/">Home</a><span>
-		<span><a href="#/countries">Browse Countries</a></span>
+	<div ng-show="!loading">
+		<h1>{{ country.countryName }}</h1>
+		<p>Population of Country: {{ country.population | number }}</p>
+		<p>Area: {{ country.areaInSqKm | number }} square km</p>
+		<p>Capital: {{ capital.name }}</p>
+		<p>Population of Capital: {{ capital.population | number }}</p>
+		<label>{{ neighbours.length || 0 }} Neighbors<span ng-show="neighbours.length !== 1"></span>: </label>
+		<span ng-repeat="neighbour in neighbours"><a href="#/countries/{{ neighbour.countryCode }}/capital">{{ neighbour.name }}</a>{{ $last ? '' : ', ' }}</span>
+		<div>
+			<span><img id='myImage' src="http://www.geonames.org/img/country/250/{{ country.countryCode | uppercase }}.png" /></span>
+			<span><img src="http://www.geonames.org/flags/x/{{ country.countryCode | lowercase }}.gif" /></span>
+		</div>
+		<div class="text-center">
+			<span><a href="#/">Home</a><span>
+			<span><a href="#/countries">Browse Countries</a></span>
+		</div>
 	</div>
 </div>

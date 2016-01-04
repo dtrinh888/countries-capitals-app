@@ -60,7 +60,7 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 					isNameRequired: true,
 					username: 'dtrinh888',
 					/* type default is XML but we need JSON*/
-					type: JSON
+					type: 'JSON'
 				}
 			});
 		};
@@ -112,19 +112,19 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 		 * and then get params for current route with $route.current.params
 		 * once parameters get passed in .then retrieve country API in data parameter*/
 		countryDetail($route.current.params.country).then(function(data){
-				console.log('countryDetail', data);
-				/* once we retrieve country API details stick it in the scope 
-				 * taking the first object in the array per assignment */
-				$scope.country = data.data.geonames[0];
-				/* passed in capital and country code to retrieve data for captials */
-				capital($scope.country.capital, $scope.country.countryCode).then(function(capitalData){
-					console.log('capital', capitalData);
-					$scope.capital = capitalData.data.geonames[0];
-				});
-				/* need geonameId from neighbours API to loop all neighbours for selected country*/
-				neighbours($scope.country.geonameId).then(function(neighbourData){
-					console.log('neighbours', neighbourData);
-					$scope.neighbours = neighbourData.data.geonames;
-				});
+			console.log('countrydetail', data);
+			/* once we retrieve country API details stick it in the scope 
+			 * taking the first object in the array per assignment */
+			$scope.country = data.data.geonames[0];
+			/* passed in capital and country code to retrieve data for captials */
+			capital($scope.country.capital, $scope.country.countryCode).then(function(capitalData){
+				console.log('capital',capitalData);
+				$scope.capital = capitalData.data.geonames[0];
 			});
-		}]);
+			/* need geonameId from neighbours API to loop all neighbours for selected country */
+			neighbours($scope.country.geonameId).then(function(neighbourData){
+				console.log('neighbours',neighbourData);
+				$scope.neighbours = neighbourData.data.geonames;
+			});
+		});
+	}]);

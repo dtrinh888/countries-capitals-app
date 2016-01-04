@@ -1,17 +1,15 @@
 .nav {
 	text-align: center;
 }
-table tr td a {
-    display:block;
-    height:100%;
-    width:100%;
-}
-table tr td {
-    padding-left: 0;
-    padding-right: 0;
-}
-
 table {
-    border: 1px solid black;  
-    text-align: center;  
+	width: 100%;
+}
+.home {
+	text-align: center;
+	width: 500px;
+	margin: 0 auto;
+}
+.country {
+	width: 350px;
+	margin: 0 auto;
 }
