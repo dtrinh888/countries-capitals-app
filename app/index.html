@@ -4,13 +4,16 @@
 	<meta charset="UTF-8">
 	<title>Countries and Capitals App</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-	<div class="nav">
-		<h1>Countries and Capitals</h1>
+	<div class="container">
+		<header class="nav">
+			<h1 class="text-center">Countries and Capitals</h1>
+		</header>
+		<hr>
+		<div ng-view></div>
 	</div>
-	<hr>
-	<div ng-view></div>
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
 	<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
