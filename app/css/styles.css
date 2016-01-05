@@ -24,6 +24,9 @@ tbody {
     overflow: scroll;
     width:190px;
 }
+tr:hover {
+	background-color: yellow;
+}
 .home p{
 	text-align: center;
 	width: 500px;
@@ -47,4 +50,17 @@ a.btn {
 }
 a.btn:hover {
 	border-width: 2px 1px 1px 2px;
+}
+.content {
+	width: 400px;
+	margin: 0 auto;
+}
+.images {
+	width: 550px;
+	margin: 40px auto;
+}
+.images img {
+	width: 250px;
+	height: 150px;
+	padding: 10px
 }

@@ -3,17 +3,20 @@
 		Loading Country Details...
 	</div>
 	<div ng-show="!loading">
-		<h1>{{ country.countryName }}</h1>
-		<p>Population of Country: {{ country.population | number }}</p>
-		<p>Area: {{ country.areaInSqKm | number }} square km</p>
-		<p>Capital: {{ capital.name }}</p>
-		<p>Population of Capital: {{ capital.population | number }}</p>
-		<label>{{ neighbours.length || 0 }} Neighbors<span ng-show="neighbours.length !== 1"></span>: </label>
-		<span ng-repeat="neighbour in neighbours"><a href="#/countries/{{ neighbour.countryCode }}/capital">{{ neighbour.name }}</a>{{ $last ? '' : ', ' }}</span>
-		<div>
+		<div class="content">
+			<h1>{{ country.countryName }}</h1>
+			<div><label>Population of Country: </label> {{ country.population | number }}</div>
+			<div><label>Area: </label> {{ country.areaInSqKm | number }} square km</div>
+			<div><label>Capital: </label> {{ capital.name }}</div>
+			<div><label>Population of Capital: </label> {{ capital.population | number }}</div>
+			<label>{{ neighbours.length || 0 }} Neighbors<span ng-show="neighbours.length !== 1"></span>: </label>
+			<span ng-repeat="neighbour in neighbours"><a href="#/countries/{{ neighbour.countryCode }}/capital">{{ neighbour.name }}</a>{{ $last ? '' : ', ' }}</span>
+		</div>		
+		<div class="images">
 			<span><img id='myImage' src="http://www.geonames.org/img/country/250/{{ country.countryCode | uppercase }}.png" /></span>
 			<span><img src="http://www.geonames.org/flags/x/{{ country.countryCode | lowercase }}.gif" /></span>
 		</div>
+
 		<div class="text-center">
 			<span><a class="btn" href="#/">Home</a><span>
 			<span><a class="btn" href="#/countries">Browse Countries</a></span>
