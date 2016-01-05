@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container countries">
 	<div ng-show="loading" class="text-center">
 		<p>Loading....</p>
 	</div>
-	<div ng-show="!loading"></div>	
+	<div ng-show="!loading" style="overflow: auto"></div>	
 	<table>
 		<tr>
 			<th>Name</th>
@@ -12,18 +12,18 @@
 			<th>Population</th>
 			<th>Continent</th>
 		</tr>
-		<tr ng-repeat="country in countries | orderBy:'countryName'" ng-click = "goToCountry(country)">
-			
-			<td>{{ country.countryName }}</td>
-			<td>{{ country.countryCode }}</td>
-			<td>{{ country.capital }}</td>
-			<td>{{ country.areaInSqKm | number }}</td>
-			<td>{{ country.population | number }}</td>
-			<td>{{ country.continent }}</td>
-
-		</tr>
+		<tbody>
+			<tr ng-repeat="country in countries | orderBy:'countryName'" ng-click = "goToCountry(country)">
+				<td>{{ country.countryName }}</td>
+				<td>{{ country.countryCode }}</td>
+				<td>{{ country.capital }}</td>
+				<td>{{ country.areaInSqKm | number }}</td>
+				<td>{{ country.population | number }}</td>
+				<td>{{ country.continent }}</td>
+			</tr>
+		</tbody>
 	</table>
 	<div class="text-center">
-		<a href="#/">Home</a>
+		<a class="btn" href="#/">Home</a>
 	</div>
 </div>
