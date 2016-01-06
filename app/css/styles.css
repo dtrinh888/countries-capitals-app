@@ -4,6 +4,7 @@
 table {
 	border-collapse: collapse;
 	width: 100%;
+
 }
 th, td {
 	text-align: left;
@@ -18,11 +19,9 @@ tr:nth-child(odd) {
 th {
 	background-color: #20B2AA;
 }
-tbody {
-    background-color: #ddd;
-    height: 100px;
-    overflow: scroll;
-    width:190px;
+.list {
+	height: 750px;
+    overflow: auto;
 }
 tr:hover {
 	background-color: yellow;

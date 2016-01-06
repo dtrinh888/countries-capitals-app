@@ -3,26 +3,28 @@
 		<p>Loading....</p>
 	</div>
 	<div ng-show="!loading" style="overflow: auto"></div>	
-	<table>
-		<tr>
-			<th>Name</th>
-			<th>Country Code</th>
-			<th>Capital</th>
-			<th>Area in km2</th>
-			<th>Population</th>
-			<th>Continent</th>
-		</tr>
-		<tbody>
-			<tr ng-repeat="country in countries | orderBy:'countryName'" ng-click = "goToCountry(country)">
-				<td>{{ country.countryName }}</td>
-				<td>{{ country.countryCode }}</td>
-				<td>{{ country.capital }}</td>
-				<td>{{ country.areaInSqKm | number }}</td>
-				<td>{{ country.population | number }}</td>
-				<td>{{ country.continent }}</td>
+	<div class="list">
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Country Code</th>
+				<th>Capital</th>
+				<th>Area in km2</th>
+				<th>Population</th>
+				<th>Continent</th>
 			</tr>
-		</tbody>
-	</table>
+			<tbody> 
+				<tr ng-repeat="country in countries | orderBy:'countryName'" ng-click = "goToCountry(country)">
+					<td>{{ country.countryName }}</td>
+					<td>{{ country.countryCode }}</td>
+					<td>{{ country.capital }}</td>
+					<td>{{ country.areaInSqKm | number }}</td>
+					<td>{{ country.population | number }}</td>
+					<td>{{ country.continent }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<div class="text-center">
 		<a class="btn" href="#/">Home</a>
 	</div>
