@@ -50,6 +50,7 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 			return $http({
 				url: 'http://api.geonames.org/search',
 				params: {
+					username: 'dtrinh888',
 					/* passed the parameters created in function to required API 
 					 * parameters: q, name_equals and country*/
 					q: capitalName,
@@ -58,7 +59,7 @@ angular.module('ccApp', ['ngAnimate', 'ngRoute'])
 					/* at least one of the search term needs to be part of the place name 
 					 * if we want to find places with example: 'Berlin' we set it to true*/
 					isNameRequired: true,
-					username: 'dtrinh888',
+					
 					/* type default is XML but we need JSON*/
 					type: 'JSON'
 				}

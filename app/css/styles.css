@@ -13,13 +13,13 @@ section.positioned {
 	position: absolute;
 }
 .container {
-	overflow-y: auto;
+/*	overflow-y: auto;*/
 }
-th div {
+tr div {
 	position: absolute;
 	background-color: #20B2AA;
 	margin-top: -20px;
-	width: 100%;
+	width: 1000px;
 }
 thead tr{
 	background-color: #20B2AA;

@@ -1,0 +1,19 @@
+{
+  "name": "countries-capitals-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtrinh888/countries-capitals-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dtrinh888/countries-capitals-app/issues"
+  },
+  "homepage": "https://github.com/dtrinh888/countries-capitals-app#readme"
+}
